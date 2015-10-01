@@ -86,8 +86,9 @@ class Column:
                 yield self._parse_post_data(post)
 
     def save(self):
+        filepath = '_'.join([str(self.follower_num),self._name,self._in_name])
         for post in self.posts:
-            post.save(filepath=self._name+'_'+str(self.follower_num))
+            post.save(filepath=DATA_PATH+filepath)
 
 
     def _parse_post_data(self, post):
