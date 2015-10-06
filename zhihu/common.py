@@ -159,7 +159,7 @@ def answer_content_process(content):
     return soup.prettify()
 
 
-def get_path(path, filename, mode, default_path, default_name):
+def get_path(path, filename, mode, default_path, default_name, rename=False):
     if path is None:
         path = os.path.join(
             os.getcwd(), remove_invalid_char(default_path))
@@ -168,10 +168,11 @@ def get_path(path, filename, mode, default_path, default_name):
     if os.path.isdir(path) is False:
         os.makedirs(path)
     temp = filename
-    i = 0
-    while os.path.isfile(os.path.join(path, temp) + '.' + mode):
-        i += 1
-        temp = filename + str(i)
+    if rename:
+        i = 0
+        while os.path.isfile(os.path.join(path, temp) + '.' + mode):
+            i += 1
+            temp = filename + str(i)
     return os.path.join(path, temp) + '.' + mode
 
 
