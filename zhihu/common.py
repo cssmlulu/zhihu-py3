@@ -70,6 +70,7 @@ re_collection_url_split = re.compile(r'.*(/c.*)')
 re_get_number = re.compile(r'[^\d]*(\d+).*')
 re_del_empty_line = re.compile(r'\n*(.*)\n*')
 
+DATA_PATH='E:/zhihu/'
 
 def check_soup(attr, soup_type='_make_soup'):
     def real(func):

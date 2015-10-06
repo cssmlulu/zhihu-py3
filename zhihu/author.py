@@ -601,6 +601,10 @@ class Author:
         return self.upvote_num + self.thank_num + \
             self.question_num + self.answer_num == 0
 
+    def save_columns(self):
+        for c in self.columns:
+            c.save()
+
     @staticmethod
     def _parse_un_cn(act):
         upvote_num = int(act.find(

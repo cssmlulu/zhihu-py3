@@ -85,6 +85,12 @@ class Column:
             for post in soup:
                 yield self._parse_post_data(post)
 
+    def save(self):
+        filepath = '_'.join([str(self.follower_num),self._name,self._in_name])
+        for post in self.posts:
+            post.save(filepath=DATA_PATH+filepath)
+
+
     def _parse_post_data(self, post):
         from .author import Author
         from .post import Post
